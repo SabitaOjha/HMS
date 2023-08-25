@@ -1,0 +1,139 @@
+<div class="container">
+    <div class="admin">
+      <button id="logoutbtn">Log out</button>
+      <h2 align="center">Admin Dashboard</h2>
+      <hr>
+      <!-- <a routerLink="/Admin/RegisterDoctor">Register Doctor</a> -->
+    </div>
+  </div>
+  <div class="second-container" class="item2">
+ 
+    <div class="block">
+      <button id="manage-patient">Manage Patient</button>
+      <button id="patientlist">Appointed patients</button>
+      <button id="manage-doctor"><a routerLink="/Admin/ManageDoctor">ManageDoctor</a></button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Register Doctor
+      </button>
+    </div>
+    <div class="table">
+      <h5 align="center"><u>List of appointed patients</u></h5>
+      <table class="table table-success table-striped">
+        <thead>
+          <th>S.N.</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Age</th>
+          <th>Phone Number</th>
+          <th> Initial Symptoms</th>
+          <th> Date and Time</th>
+          <!-- <th>Status</th> -->
+          <!-- <th>Doctor</th> -->
+      
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of viewPatients">
+            <td>{{data.id}}</td>
+            <td>{{data.firstName}}&nbsp;{{data.lastName}}</td>
+            <td>{{data.address}}</td>
+            <td>{{data.age}}</td>
+            <td>{{data.phoneNumber}}</td>
+            <td>{{data.symptoms}}</td>
+            <td>{{data.date}}</td>
+            <!-- <td><input type="checkbox">On hold </td> -->
+            <td *ngFor="let item of docName">{{item.firstName}}</td>
+           
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-lg" style="margin-left: 10px;margin-top: 10px;" id="exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" align="center">Doctor Registration Form </h5>
+          <button type="button" style="margin-right:5px;" class="btn-close" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <section class="vh-100" style="background-color: skyblue" id="back-frame">
+          <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem; margin-top: 0px;">
+                  <div class="row g-0">
+                    <div class="col-md-6 col-lg-5 d-none d-md-block">
+                      <img
+                        src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGRvY3RvcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                        alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                    </div>
+                    <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                      <div class="card-body p-4 p-lg-5 text-black">
+  
+                        <form [formGroup]="doctor.DoctorForm">
+  
+                          <div class="d-flex align-items-center mb-3 pb-1">
+  
+                            <h4>Register a Doctor</h4>
+                          </div>
+  
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example17">First Name</label>
+                            <input type="text" id="form2Example17" class="form-control form-control-lg"
+                              formControlName="FirstName">
+                            <small class="error" *ngIf="doctor.DoctorForm.get('FirstName')!.invalid 
+                                && doctor.DoctorForm.get('FirstName')!.touched" class="text-danger">First name is
+                              required</small>
+                          </div>
+  
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example17">Last Name</label>
+                            <input type="text" id="form2Example17" class="form-control form-control-lg"
+                              formControlName="LastName">
+                            <small class="error" *ngIf="doctor.DoctorForm.get('LastName')!.invalid 
+                                && doctor.DoctorForm.get('LastName')!.touched" class="text-danger">Last name is
+                              required</small>
+                          </div>
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example17">Address</label>
+                            <input type="text" id="form2Example17" class="form-control form-control-lg"
+                              formControlName="Address">
+                            <small class="error" *ngIf="doctor.DoctorForm.get('Address')!.invalid 
+                                && doctor.DoctorForm.get('Address')!.touched" class="text-danger">Address is
+                              required</small>
+                          </div>
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example17">Specialization</label>
+                            <input type="text" id="form2Example17" class="form-control form-control-lg"
+                              formControlName="Specialization">
+                            <small class="error" *ngIf="doctor.DoctorForm.get('Specialization')!.invalid 
+                                && doctor.DoctorForm.get('Specialization')!.touched" class="text-danger">Specialization
+                              is
+                              required</small>
+                          </div>
+  
+                          <div class="form-outline mb-4">
+                            <label class="form-label" for="form2Example27">Phone Number</label>
+                            <input type="text" id="form2Example27" class="form-control form-control-lg"
+                              formControlName="PhoneNumber">
+                            <small class="error" *ngIf="doctor.DoctorForm.get('PhoneNumber')!.invalid 
+                                && doctor.DoctorForm.get('PhoneNumber')!.touched" class="text-danger">Phone number is
+                              required</small>
+                          </div>
+                          <button type="submit" class="btn btn-primary" style="float: right;padding: 5px;"
+                            [disabled]="doctor.DoctorForm.invalid" (click)="registerDoctor()">Register</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>

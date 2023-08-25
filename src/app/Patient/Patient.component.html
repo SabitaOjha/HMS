@@ -1,0 +1,77 @@
+<div class="big-container">
+  <div class="items" class="item1">
+   <div class="slidebar">
+    <h3>Patient Panel</h3>
+   </div>
+    <a routerLink="/PatientList" id="plist">Patient List</a>
+  </div>
+  <div class="items" class="item2">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 ">
+          <div class="col-12">
+           
+            <button  id="apt-btn" type="submit" class="btn btn-primary" style="float: right;padding: 5px;"
+            [disabled]="appointment.AppointmentForm.invalid" (click)="bookAppointment()">Book appointment</button>
+          </div>
+          <form [formGroup]="appointment.AppointmentForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label>First Name</label>
+                <input type="text" class="form-control" placeholder="First Name" formControlName="FirstName">
+                <small class="error" *ngIf="appointment.AppointmentForm.get('FirstName')!.invalid 
+                && appointment.AppointmentForm.get('FirstName')!.touched" class="text-danger">First name is required</small>
+              </div><br>
+              <div class="col-md-6">
+                <label  style="margin-left: 6px;" >Last Name</label>
+                <input type="text"  style="margin-left: 6px;"  class="form-control" placeholder="Last Name" formControlName="LastName"><br>
+                <small class="error" *ngIf="appointment.AppointmentForm.get('FirstName')!.invalid 
+                && appointment.AppointmentForm.get('FirstName')!.touched" class="text-danger">First name is required</small>
+              </div>
+              <div class="col-md-6">
+                <label>Address</label>
+                <input type="text" class="form-control" placeholder="Address" formControlName="Address"><br>
+                <small class="error" *ngIf="appointment.AppointmentForm.get('LastName')!.invalid 
+                && appointment.AppointmentForm.get('LastName')!.touched" class="text-danger">Last name is required</small>
+              </div>
+              <div class="col-md-6">
+                <label  style="margin-left: 6px;">Age</label>
+                <input type="text" style="margin-left: 6px;" class="form-control" placeholder="Age" formControlName="Age"><br>
+                <small class="error" *ngIf="appointment.AppointmentForm.get('Age')!.invalid 
+                && appointment.AppointmentForm.get('Age')!.touched" class="text-danger">Age is required</small>
+              </div>
+             
+              <div >
+                <label>Phone Number</label>
+                <input type="text" class="form-control" placeholder="Phone Number" formControlName="PhoneNumber"><br>
+                <small class="error" *ngIf="appointment.AppointmentForm.get('PhoneNumber')!.invalid 
+                && appointment.AppointmentForm.get('PhoneNumber')!.touched" class="text-danger">Phone number required</small>
+              </div><br>
+
+              <div>
+                <label>Symptoms</label>
+                <input type="text" class="form-control" placeholder="Symptoms" formControlName="Symptoms"><br>
+                <small class="error" *ngIf="appointment.AppointmentForm.get('Symptoms')!.invalid 
+                && appointment.AppointmentForm.get('Symptoms')!.touched" class="text-danger">Symptoms are required</small>
+              </div>
+
+              <div>
+                <label>Date</label>
+                <input type="datetime-local" class="form-control" placeholder="Date" formControlName="Date"><br>
+                <small class="error" *ngIf="appointment.AppointmentForm.get('Date')!.invalid 
+                && appointment.AppointmentForm.get('Date')!.touched" class="text-danger">Date is required</small>
+              </div>
+
+              <div>
+                <label>Choose Doctors</label>
+                <select class="form-select" style="height: 35px;" (change)="Doctor($event)" >
+                  <option selected>Doctors</option>
+                  <option value="{{data.id}}" *ngFor="let data of doctorList">{{data.firstName}}&nbsp;&nbsp;{{data.lastName}}&nbsp;({{data.specialization}})</option>
+
+                </select>
+              </div>
+
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,136 @@
+ <div class="container">
+    <div class="record">
+        <h4 style="text-align: center;"><u><i>Patient's details</i></u></h4>
+       <div class="wrapper">
+        <div class="inner">
+            <label>First Name: &nbsp;&nbsp;&nbsp;</label>{{Patients.firstName}}
+            <label>Last Name: &nbsp;&nbsp;&nbsp;</label>{{Patients.lastName}}
+         
+        </div>
+        <br>
+        <div class="inner">
+            <label>Address: &nbsp;&nbsp;&nbsp;</label>{{Patients.address}}
+            <label>Age: &nbsp;&nbsp;&nbsp; </label>{{Patients.age}}
+        </div>
+        <br>
+        <div class="inner">
+            <label>Symptoms: &nbsp;&nbsp;&nbsp;</label>{{Patients.symptoms}}
+            <label>Phone Number: &nbsp;&nbsp;&nbsp;</label>{{Patients.phoneNumber}}
+        </div>
+       </div>
+    </div>
+   <div class="flex-container">
+    <div class="diagnosis">
+        <div>
+            <p style="text-align: center;padding-bottom: 3px;margin-top: 10px;"><b>Select Problems</b></p>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example"  [(ngModel)]="problem.Problem">
+                <option value="Dengue Fever">Dengue Fever</option>
+                <option value="Migraine">Migraine</option>
+                <option value="Ovarian Cyst">Ovarian cyst</option>
+                <option value="Breast cancer">Breast cancer</option>
+                <option value="Diphtheria">Diphtheria</option>
+                <option value="TB">TB</option>
+                <option value="Respiratory infections">Respiratory infections</option>
+                <option value="Enteric infections">Enteric infections</option>
+              </select>
+              <button type="submit" class="click-btn" (click)="postProblem()">Add Diasease</button>
+       </div>
+       <div class="add-medicine">
+        <button type="button" style="float: left; margin-top: 30px" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Prescribe Medicine
+          </button>
+       </div>
+   </div>
+   <div class="tbl">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Problems</th>
+                <th>Prescribed Medicine</th>
+                <th>Doases</th>
+                <th>Doase Description</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{Patients.firstName}}&nbsp;{{Patients.lastName}}</td>
+                <li *ngFor="let data of Problems">
+                    <td>{{data.problem}}</td>
+                </li>
+                <!-- <li *ngFor="let medicine of Problems.medicines">
+                  <td>{{medicine.medicineName}</td>
+                  <td>{{medicine.doases}</td>
+                  <td>{{medicine.doaseDescription}</td>
+                  <td>{{medicine.quantity}}</td>
+                </li> -->
+            </tr>
+        </tbody>
+       
+      </table>
+
+   </div>
+   <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"  id="exampleModalLabel">Doctor's Prescription</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label  style="margin-left: 6px;" >Medicine Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="medicine.MedicineName" name="Medicine">
+
+                  </div><br>
+                  <div>
+                    <label  style="margin-left: 6px;" >Choose Problem</label>
+                    <select class="form-select" style="height: 35px;" (change)="ProblemsId($event)" >
+                      <option selected>Problems</option>
+                      <option value="{{data.id}}" *ngFor="let data of Problems">{{data.problem}}</option>
+    
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label  style="margin-left: 6px;" >Doases</label>
+                    <select class="form-select" style="height: 35px;" [(ngModel)]="medicine.Doases" name="Doases" ><br>
+                        
+                        <option value="1-0-1">1-0-1</option>
+                        <option value="2-1-2">2-1-2</option>
+                        <option value="1-1-1">1-1-1</option>
+                        </select>
+                  </div>
+                  <br>
+
+                  <div class="col-md-6">
+                    <label>Doase Description</label>
+                    <select class="form-select" style="height: 35px;" [(ngModel)]="medicine.DoaseDescription" name="Doase Description" >
+                        <option selected>Doases Description</option>
+                        <option value="Empty stomach">Empty stomach</option>
+                        <option value="After Breakfast">After Meal</option>
+                        <option value="After Lunch">After Lunch</option>
+                        <option value="Before Dinner">Before Dinner</option>
+                        <option value="After Dinner">After Dinner</option>
+                        </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label  style="margin-left: 6px;">Quantity</label>
+                    <input type="text" style="margin-left: 6px;" class="form-control" [(ngModel)]="medicine.Quantity" name="Quantity" ><br>
+                    
+                  </div>
+    
+                  <button  id="apt-btn" type="submit" class="btn btn-primary" style="float: right;padding: 5px;"
+                  (click)="postMedicine()">Prescribe Medicine</button>
+                  </div>
+              </form> 
+        </div>
+    </div>
+  </div>
+ </div>
+</div>
+  

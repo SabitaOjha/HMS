@@ -1,0 +1,42 @@
+<main>
+    <h2><u><i>DOCTOR'S PRESCRIPTION</i></u></h2>
+    <h4><b><i><u>Patient's Personal Information</u></i></b></h4>
+    <div class="patient-info">
+        <label>Name:</label>&nbsp;
+         <span>{{patients.firstName}}&nbsp;{{patients.lastName}}</span><br>
+        <label>Address:</label>&nbsp;
+        <span>{{patients.address}}</span><br>
+        <label>Age:</label>&nbsp;
+        <span>{{patients.age}}</span><br>
+        <label>Phone Number:</label>&nbsp;
+        <span>{{patients.phoneNumber}}</span><br>
+        <label>Initial symptoms:</label>&nbsp;
+        <span>{{patients.symptoms}}</span>
+    </div>
+   <div class="tbl">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Problems</th>
+                <th>Prescribed Medicine</th>
+                <th>Doases</th>
+                <th>Doase Description</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor="let data of patients.problems">
+                <td>{{data.problem}}</td>
+                <li *ngFor="let medicine of patients.medicines ">
+                    <td>{{medicine.prescribedMedicine}}</td>
+                    <td>{{medicine.doases}}</td>
+                    <td>{{medicine.doaseDescription}}</td>
+                    <td>{{medicine.quantity}}</td>
+                </li>
+         
+         </tr>
+        
+        </tbody>
+      </table>
+   </div>
+</main>

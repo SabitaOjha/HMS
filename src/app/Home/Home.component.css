@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#back-image{
+    background-image: url("https://thumbs.dreamstime.com/b/group-hospital-doctors-over-health-care-clinic-background-89857953.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%; 
+    height: 600px; 
+
+} 

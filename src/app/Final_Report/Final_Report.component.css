@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    margin: 10px 50px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    padding: 20px;
+    min-height: 1024px;
+}
+ h2{
+    text-align: center;
+    padding: 5px; 
+}
+.tbl{
+    margin: 20px 20px 20px;
+}
+.patient-info{
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-weight: 200;
+}

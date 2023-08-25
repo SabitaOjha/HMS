@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.slideHeading{
+   padding: 3px;
+   /* text-align: center; */
+}
+#plist{
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+    text-align: center;
+    margin-top: 10px;
+}
+.big-container{
+    /* background-color: red; */
+    margin-top: 10px;
+    height: 600px;
+    width: 900px;
+    display: grid;
+    grid-template-rows: 400px;
+    grid-template-columns: 250px 1100px;
+    column-gap: 20px;
+    background-color: whitesmoke;
+}
+h3{
+    /* display: inline-block; */
+    text-align: center;    
+    border-bottom: 1px solid silver;
+    padding: 3px;
+    color: white;
+    margin-top: 20px;
+}
+.item1{
+    background-color: rgb(11, 161, 161);
+    height: 600px;
+    border-radius: 5px;;
+}
+
+.item2{
+    width: 2120px;
+    height: 600px;
+    background-color: skyblue;
+    border-radius: 5px;;
+}
+input{
+    height: 35px;
+}
+form{
+    margin-top: 15px;
+    padding: 10px;
+}
+.div-btn button{
+    margin-right: 30px;
+    margin-top: 15px;
+    width: 150px;
+    height: 45px;
+    font-size: 17px;
+}
+label{
+    font-size: larger;
+    font-weight: 100;
+    font-family: sans-serif;
+}
+#apt-btn{
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: blue;
+
+}
+form{
+    margin-top: 50px;
+}
+

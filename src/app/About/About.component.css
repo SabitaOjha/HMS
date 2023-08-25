@@ -1,0 +1,50 @@
+/* 
+.container{
+    background-image: url("https://www.karexpert.com/wp-content/uploads/2023/07/EHR-Improve-Patient-Care.png");
+    background-repeat: no-repeat;
+    background-size:70ch;
+    background-position: right;
+} */
+
+.heading h3{
+    padding-top: 70px
+}
+.heading #hospital{
+    color:rgb(0, 217, 255);
+}
+ /* .welcomepara h4{
+    padding-top: 20px;
+} */
+.vision h4{
+    padding-top: 30px;
+}
+.services h3{
+    align-content: center;
+}
+.services #service{
+    color:rgb(0, 217, 255);
+}
+.flex-container{
+    display: flex;
+}
+.servicee{
+    /* background-color: yellow; */
+    border-style: ridge;
+    margin: 10px;
+    border-radius: 4px;
+}
+.flex2{
+    display:flex;
+}
+h5,p{
+    padding: 20px;
+    justify-content: left;
+    font-family: sans-serif;
+}
+h5{
+    padding-top: 30px;
+}
+.servicee h5,p:hover{
+    background-color: rgb(0, 217, 255);
+    color:white;
+}

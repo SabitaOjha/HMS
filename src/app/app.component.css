@@ -1,0 +1,13 @@
+
+#navlist li #home{
+    padding-left: 90px;
+}
+#navlist li a{
+ padding-left: 35px;;
+ font-weight: 300;
+ font-family: sans-serif;
+}
+
+#navlist li a:hover{
+    color: white;
+}
